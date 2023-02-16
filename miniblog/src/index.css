@@ -111,3 +111,9 @@ button[disabled] {
   padding: 5px;
   border-radius: 5px;
 }
+
+.loadingUser {
+  position: absolute;
+  top: 45%;
+  left: 47%;
+}
