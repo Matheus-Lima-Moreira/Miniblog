@@ -23,6 +23,7 @@ export const useAuthentication = () => {
     if (cancelled) return;
   }
 
+  // Register
   const createUser = async (data) => {
     checkIfIsCancelled();
 
@@ -56,6 +57,45 @@ export const useAuthentication = () => {
     }
   };
 
+  // Logout - sign out
+  const logout = async () => {
+    checkIfIsCancelled();
+
+    signOut(auth);
+  }
+
+  // Login - sign in
+  const login = async (data) => {
+    checkIfIsCancelled();
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const { user } = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      return user;
+    } catch (error) {
+      let systemErrorMessage;
+
+      if (error.message.includes("user-not-found")) {
+        systemErrorMessage = "Usuário não encontrado.";
+      } else if (error.message.includes("wrong-password")) {
+        systemErrorMessage = "Credenciais inválidas.";
+      } else {
+        systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde.";
+      }
+
+      setError(systemErrorMessage);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   useEffect(() => {
     setCancelled(true);
   }, []);
@@ -65,5 +105,7 @@ export const useAuthentication = () => {
     createUser,
     error,
     loading,
+    logout,
+    login
   };
 };

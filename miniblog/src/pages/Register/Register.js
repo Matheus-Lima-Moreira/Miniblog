@@ -1,5 +1,4 @@
 import React from "react";
-
 import styles from "./Register.module.css";
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
@@ -18,7 +17,7 @@ const Register = () => {
 
     setError(null);
 
-    const user = { nome: displayName, email, password };
+    const user = { displayName, email, password };
 
     if (password !== confirmPassword) {
       setError("As senhas não conferem!");
@@ -41,6 +40,7 @@ const Register = () => {
       <h1>Cadastre-se para postar</h1>
       <p>Crie seu usuário e compartilhe suas histórias</p>
       <form onSubmit={handleSubmit}>
+        {/* Nome */}
         <label>
           <span>Nome:</span>
           <input
@@ -53,6 +53,7 @@ const Register = () => {
           />
         </label>
 
+        {/* Email */}
         <label>
           <span>Email:</span>
           <input
@@ -65,6 +66,7 @@ const Register = () => {
           />
         </label>
 
+        {/* Senha */}
         <label>
           <span>Senha:</span>
           <input
@@ -77,6 +79,7 @@ const Register = () => {
           />
         </label>
 
+        {/* Confirmação de senha */}
         <label>
           <span>Confirmação de senha:</span>
           <input
@@ -88,6 +91,8 @@ const Register = () => {
             required
           />
         </label>
+
+        {/* Botões */}
         {!loading ? <button className="btn">Cadastrar</button> : <button className="btn" disabled>Aguarde...</button>}
         {error && <p className="error">{error}</p>}
       </form>
