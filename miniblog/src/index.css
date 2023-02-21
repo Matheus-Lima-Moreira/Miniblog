@@ -92,7 +92,7 @@ textarea {
   color: #FFF;
 }
 
-.btn.btn.btn-outline:hover {
+.btn.btn-outline:hover {
   background-color: #000;  
 }
 
@@ -116,4 +116,16 @@ button[disabled] {
   position: absolute;
   top: 45%;
   left: 47%;
+}
+
+.noposts {
+  text-align: center;
+}
+
+.noposts p {
+  margin-bottom: 1.5em;
+}
+
+.noposts a {
+  padding: 10px 25px;
 }

@@ -20,13 +20,26 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
       try {
         let q;
 
+        // Search for tags
         if (search) {
           q = await query(
             collectionRef,
             where('tags', 'array-contains', search),
             orderBy('createdAt', 'desc')
           );
-        } else {
+        } 
+        
+        // Search for user posts
+        else if (uid) {
+          q = await query(
+            collectionRef,
+            where('uid', '==', uid),
+            orderBy('createdAt', 'desc')
+          );          
+        } 
+        
+        // Get all posts
+        else {
           q = await query(
             collectionRef,
             orderBy('createdAt', 'desc')
