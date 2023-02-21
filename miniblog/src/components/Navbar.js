@@ -10,10 +10,12 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
+      {/* Logo */}
       <NavLink to="/" className={styles.brand}>
         Mini <span>Blog</span>
       </NavLink>
 
+      {/* Links */}
       <ul className={styles.links_list}>
         <li>
           <NavLink

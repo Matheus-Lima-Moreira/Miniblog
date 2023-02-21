@@ -33,10 +33,10 @@ const CreatePost = () => {
 
     // check all the values
     insertDocument({
-      title,
-      image,
-      body,
-      tagsArray,
+      title: title.trim(),
+      image: image.trim(),
+      body: body.trim(),
+      tags: tagsArray,
       uid: user.uid,
       createBy: user.displayName
     });
@@ -57,7 +57,7 @@ const CreatePost = () => {
             type='text'
             name='title'
             placeholder='Pense num bom título...'
-            onChange={(e) => setTitle(e.target.value.trim())}
+            onChange={(e) => setTitle(e.target.value)}
             value={title}
             required
           />
@@ -70,7 +70,7 @@ const CreatePost = () => {
             type='text'
             name='image'
             placeholder='Insira uma imagem que represente o seu post'
-            onChange={(e) => setImage(e.target.value.trim())}
+            onChange={(e) => setImage(e.target.value)}
             value={image}
             required
           />
@@ -82,7 +82,7 @@ const CreatePost = () => {
           <textarea
             name='body'
             placeholder='Insira o contéudo do post'
-            onChange={(e) => setBody(e.target.value.trim())}
+            onChange={(e) => setBody(e.target.value)}
             required
           >
           </textarea>
