@@ -11,10 +11,11 @@
 git clone https://github.com/Matheus-Lima-Moreira/Miniblog.git
 ```
 
-<p>Second go to folder Miniblog and execute <b>npm start</b> like below:</p>
+<p>Second go to folder Miniblog, open cmd and execute <b>npm start</b> like below:</p>
 
 ```
 cd Miniblog
+npm install react-scripts
 npm start
 ```
 
